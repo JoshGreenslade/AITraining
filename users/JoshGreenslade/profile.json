@@ -1,6 +1,6 @@
 {
   "user_id": "JoshGreenslade",
-  "name": "Josh1",
+  "name": "Josh2",
   "level": 1,
   "xp": 0,
   "badges": [],
@@ -15,11 +15,11 @@
   },
   "profile": {
     "team_size": "3",
-    "tech_stack": "Dotnet, Angular",
+    "tech_stack": "Dotnet, Angular, Python, SQL",
     "ai_experience": "intermediate",
-    "learning_goals": "Learn how to be more effective with AI; Learn how to orchestrate AI agents and workflows",
-    "availability_hours_per_week": "6-10",
-    "learning_style": "mixed"
+    "learning_goals": "Be first out of the gate for the oncoming change, Be REALLY GOOD at the oncoming change, BE the kind of person people hire because he knows how to set up orchestrating AI agents in enterprises",
+    "availability_hours_per_week": "3-5",
+    "learning_style": "hands-on"
   },
   "learning_style_effectiveness": {},
   "last_active": "2026-02-16",
