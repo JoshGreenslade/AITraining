@@ -54,7 +54,7 @@ Extract the following information from the issue body:
 
 Create a new GitHub Discussion with:
 - **Title**: `🎓 [Username]'s AI-First Journey`
-- **Category**: General (or Q&A if available)
+- **Category**: Announcements
 - **Body**: A warm welcome message that includes:
   - Personalized greeting with their name
   - Overview of their learning path based on their profile
