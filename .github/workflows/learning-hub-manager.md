@@ -57,11 +57,17 @@ This contains their:
 
 Read the user's comment and understand what they're asking for:
 - **Questions about concepts** → Provide clear explanations with examples
-- **Request for next challenge** → Suggest appropriate challenge based on their level
-- **Completed challenge** → Acknowledge and encourage them to close the challenge PR
+- **Request for next challenge** → Suggest appropriate challenge based on their level and create the issue
+- **"What should I do next?"** or **General confusion** → Check their progress and provide clear next steps
+- **Completed challenge** → Acknowledge and celebrate, suggest next challenge
 - **Stuck on something** → Provide hints without giving away answers
 - **General discussion** → Engage thoughtfully and relate to their learning journey
 - **Progress check** → Share their current stats and achievements
+
+**Important**: If the user seems uncertain or asks about next steps, **proactively guide them** to:
+1. Check for open challenge PRs
+2. Accept and complete any active challenges
+3. Request a new challenge if they've completed all assigned ones
 
 ## Step 3: Provide Helpful Response
 
@@ -153,6 +159,31 @@ Thanks for sharing, [Name]! Let me review your approach... 🔍
 [Advanced technique or insight]
 
 This shows great progress in [skill area]! Ready to apply these insights to your next challenge?
+```
+
+### For "What Should I Do Next?" or General Confusion
+
+```markdown
+Hi [Name]! 👋
+
+Let me help you with your next steps!
+
+**Your Current Status:**
+- **Level**: [Level] - [Level Name]
+- **XP**: [Current XP] / [Next Level XP]
+- **Challenges Completed**: [Count]
+
+**Here's what to do next:**
+
+1. 🔍 **Check for open PRs** - Look for any challenge PRs assigned to you
+2. 💬 **Accept the challenge** - Comment "I accept this challenge" on the PR
+3. 📖 **Read the instructions** - Make sure you understand the requirements
+4. 💪 **Complete the work** - Follow the submission guidelines
+5. 🎉 **Submit** - Create your solution and the grader will review it
+
+**Don't see a challenge PR?** Let me know and I'll create one for you right away! Just say "I'm ready for a challenge" and I'll get you set up with the right one for your level.
+
+Questions? I'm here to help! 🚀
 ```
 
 ## Conversation Best Practices

@@ -14,15 +14,15 @@ permissions:
 safe-outputs:
   create-pull-request: {}
   add-labels:
-    max: 3
+    max: 5
   add-comment:
-    max: 2
+    max: 4
   close-issue:
     max: 1
 
 tools:
   github:
-    toolsets: [default]
+    toolsets: [default, discussions]
   repo-memory: {}
 ---
 
@@ -226,9 +226,34 @@ Your submission must:
 
 3. **Close the Issue** after confirming the PR is created successfully
 
-### Step 6: Monitor and Support
+### Step 6: Notify User in Their Discussion
 
-Add a final comment with next steps:
+Find the user's learning hub discussion (title should be `🎓 [Username]'s AI-First Journey`) and post a comment:
+
+```markdown
+## 🎯 Your First Challenge is Ready!
+
+Great news, [Name]! Your first challenge has been created: [PR Link]
+
+**Challenge**: [Challenge Title]  
+**Difficulty**: Level [1-5]  
+**XP Reward**: [XP Amount]  
+**Estimated Time**: [time]
+
+**To get started:**
+1. 📖 Click the link above to read the full challenge description
+2. 💬 Comment "I accept this challenge" on the PR
+3. 💪 Complete the challenge following the submission instructions
+4. 🎉 Submit your solution and earn [XP] XP!
+
+This challenge will help you master [key skills]. Don't hesitate to ask questions in the PR if you need clarification.
+
+You've got this! 🚀
+```
+
+### Step 7: Monitor and Support
+
+Add a final comment to the original issue with next steps:
 ```markdown
 ## Next Steps
 

@@ -10,8 +10,10 @@ permissions:
 safe-outputs:
   create-discussion:
     max: 1
+  create-issue:
+    max: 1
   add-labels:
-    max: 3
+    max: 5
   add-comment:
     max: 2
   close-issue:
@@ -65,7 +67,7 @@ Create a new GitHub Discussion with:
     - **Level 4 (AI Architect):** 3,500-7,000 XP
     - **Level 5 (AI Visionary):** 7,000+ XP
   - Achievement badges they can unlock
-  - Link to their first challenge (you'll mention this will come soon)
+  - **Clear next steps**: "Your first challenge PR will be created in moments! Watch for a notification about your first challenge: 'Write Your First AI Prompt'"
   - Encouragement to ask questions anytime by commenting on this discussion
 
 ## Step 3: Initialize Repo-Memory
@@ -111,15 +113,38 @@ Add these labels to the onboarding issue:
 - `training:active-learner`
 - `user:[github-handle]` (create this label if it doesn't exist)
 
-## Step 5: Welcome Message on Issue
+## Step 5: Create First Challenge Issue
+
+To ensure the user has a clear next step, **immediately create an issue to trigger the first challenge**:
+
+Create a new issue with:
+- **Title**: `Create Challenge: Prompt Engineering Basics for [username]`
+- **Labels**: `training:create-challenge`
+- **Body**:
+  ```markdown
+  **User Handle**: @[github-handle]
+  **Difficulty Level**: 1
+  **Topic Area**: Prompt Engineering Basics
+  **Learning Objectives**: Learn to write effective prompts for AI tools
+  **Context**: This is the user's first challenge. Based on their profile:
+  - AI Experience: [ai_experience]
+  - Learning Style: [learning_style]
+  - Tech Stack: [tech_stack]
+  
+  Please create the "Write Your First AI Prompt" challenge (Level 1) for this user.
+  ```
+
+This will automatically trigger the challenge-creator workflow to generate their first challenge PR.
+
+## Step 6: Welcome Message on Issue
 
 Post a comment on the issue with:
 - Confirmation that onboarding is complete ✅
 - Link to their new Discussion
-- Next steps: "Check your discussion for your first challenge!"
+- **Specific next steps**: "Your first challenge is being created now! Check your discussion in a few moments for the challenge PR."
 - Encouragement: "Welcome to the future of AI-first engineering! 🚀"
 
-## Step 6: Close the Issue
+## Step 7: Close the Issue
 
 Close the onboarding issue with a success message.
 
@@ -185,10 +210,21 @@ You start at **Level 1: AI Explorer** with **0 XP**. Complete challenges to earn
 
 ## 🎯 Your First Challenge
 
-Your first challenge will be posted here soon! In the meantime, feel free to:
-- Ask me questions about AI tools
-- Explore the resources in the `/resources` folder
-- Get familiar with GitHub Agentic Workflows
+**Your first challenge PR is being created right now!** 🚀
+
+You'll receive a notification when it's ready. The challenge is: **"Write Your First AI Prompt"** - a Level 1 challenge worth 100 XP.
+
+**What to do next:**
+1. ✅ Wait for the challenge PR notification (should arrive in moments)
+2. 📖 Read the challenge description carefully
+3. 💬 Comment "I accept this challenge" on the PR to begin
+4. 💪 Complete the challenge and submit your solution
+5. 🎉 Earn your first 100 XP!
+
+In the meantime, feel free to:
+- Ask me questions about AI tools by commenting here
+- Check out the [Getting Started Guide](../resources/guides/getting-started.md)
+- Browse the [Reading List](../resources/reading-list.md)
 
 Ready to start? Let's build the future together! 🚀
 
@@ -200,6 +236,7 @@ Ready to start? Let's build the future together! 🚀
 
 - Use `github create-discussion` to create the discussion
 - Use `repo-memory write` to save the user profile
+- Use `github create-issue` to create the first challenge request issue
 - Use `github add-label` to add labels
 - Use `github create-comment` to post comments
 - Use `github close-issue` to close the onboarding issue
