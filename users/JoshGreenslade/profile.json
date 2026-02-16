@@ -1,0 +1,28 @@
+{
+  "user_id": "JoshGreenslade",
+  "name": "Josh1",
+  "level": 1,
+  "xp": 0,
+  "badges": [],
+  "challenges_completed": [],
+  "challenges_in_progress": [],
+  "skills": {
+    "prompt_engineering": 0,
+    "agentic_workflows": 0,
+    "ai_code_review": 0,
+    "agent_orchestration": 0,
+    "ai_mentoring": 0
+  },
+  "profile": {
+    "team_size": "3",
+    "tech_stack": "Dotnet, Angular",
+    "ai_experience": "intermediate",
+    "learning_goals": "Learn how to be more effective with AI; Learn how to orchestrate AI agents and workflows",
+    "availability_hours_per_week": "6-10",
+    "learning_style": "mixed"
+  },
+  "learning_style_effectiveness": {},
+  "last_active": "2026-02-16",
+  "completion_rate": 0.0,
+  "onboarded_date": "2026-02-16"
+}
