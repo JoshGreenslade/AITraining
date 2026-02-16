@@ -12,7 +12,6 @@ safe-outputs:
   add-comment:
     max: 5
   create-pull-request:
-    max: 1
 tools:
   github:
     toolsets: [default, discussions]

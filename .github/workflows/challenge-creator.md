@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  discussions: read
   issues: read
   pull-requests: read
 

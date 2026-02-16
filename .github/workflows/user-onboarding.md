@@ -7,13 +7,11 @@ permissions:
   contents: read
   issues: read
   pull-requests: read
+  discussions: read
 safe-outputs:
   create-discussion:
     max: 1
   create-pull-request:
-    max: 1
-  add-discussion-comment:
-    max: 1
   add-labels:
     max: 5
   add-comment:

@@ -1,7 +1,6 @@
 ---
 on:
-  schedule:
-    - cron: "13 7 * * *"  # Daily at 7:13 AM UTC (fuzzy timing)
+  schedule: daily
 
 permissions:
   contents: read
