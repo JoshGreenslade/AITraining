@@ -118,18 +118,18 @@ Add these labels to the onboarding issue:
 To ensure the user has a clear next step, **immediately create an issue to trigger the first challenge**:
 
 Create a new issue with:
-- **Title**: `Create Challenge: Prompt Engineering Basics for [username]`
+- **Title**: `Create Challenge: Prompt Engineering Basics for [username]` (replace [username] with the user's GitHub handle)
 - **Labels**: `training:create-challenge`
-- **Body**:
+- **Body** (replace all placeholders with actual values from the user's profile):
   ```markdown
   **User Handle**: @[github-handle]
   **Difficulty Level**: 1
   **Topic Area**: Prompt Engineering Basics
   **Learning Objectives**: Learn to write effective prompts for AI tools
   **Context**: This is the user's first challenge. Based on their profile:
-  - AI Experience: [ai_experience]
-  - Learning Style: [learning_style]
-  - Tech Stack: [tech_stack]
+  - AI Experience: [ai_experience from profile]
+  - Learning Style: [learning_style from profile]
+  - Tech Stack: [tech_stack from profile]
   
   Please create the "Write Your First AI Prompt" challenge (Level 1) for this user.
   ```
@@ -217,7 +217,7 @@ You'll receive a notification when it's ready. The challenge is: **"Write Your F
 **What to do next:**
 1. ✅ Wait for the challenge PR notification (should arrive in moments)
 2. 📖 Read the challenge description carefully
-3. 💬 Comment "I accept this challenge" on the PR to begin
+3. 💬 Comment "I accept this challenge" on the PR (helps track engagement)
 4. 💪 Complete the challenge and submit your solution
 5. 🎉 Earn your first 100 XP!
 

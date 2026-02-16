@@ -163,6 +163,8 @@ This shows great progress in [skill area]! Ready to apply these insights to your
 
 ### For "What Should I Do Next?" or General Confusion
 
+When responding, replace all [placeholders] with actual values from the user's profile in repo-memory:
+
 ```markdown
 Hi [Name]! 👋
 

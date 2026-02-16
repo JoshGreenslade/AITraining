@@ -52,10 +52,19 @@ Added a new step (Step 6) to notify users in their discussion when challenge is 
 Enhanced the learning hub manager to better handle users who are unsure what to do:
 
 - Added new response template: "What Should I Do Next?"
+- Added clarification that placeholders should be replaced with actual values from repo-memory
 - Template shows current status (level, XP, challenges completed)
 - Provides 5 clear action steps
 - Proactively guides users to check for PRs and accept challenges
 - Updated Step 2 to recognize and handle confusion signals
+
+### 5. Clarified Placeholder Usage
+**Files: `user-onboarding.md`, `learning-hub-manager.md`**
+
+Added explicit instructions that placeholders should be replaced with actual user profile values:
+- Made it clear that `[ai_experience]` means "ai_experience from profile"
+- Added note above templates explaining placeholder replacement
+- Maintains consistency with existing workflow placeholder conventions
 
 ## User Journey Flow
 
