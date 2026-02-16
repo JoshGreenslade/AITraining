@@ -1,0 +1,98 @@
+name: 🎓 Start AI-First Training
+description: Begin your journey to becoming an AI-First engineer
+title: "[Onboarding] New User - [Your Name]"
+labels: ["training:new-user"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Welcome to AI-First Engineering Training! 🚀
+        
+        This training platform will help you master the skills needed to lead your team in an AI-first approach. 
+        Complete this form to get started on your personalized learning journey!
+
+  - type: input
+    id: name
+    attributes:
+      label: Your Name
+      description: What should we call you?
+      placeholder: e.g., Jane Smith
+    validations:
+      required: true
+
+  - type: input
+    id: team_size
+    attributes:
+      label: Current Team Size
+      description: How many people are on your team?
+      placeholder: e.g., 5-10 engineers
+    validations:
+      required: true
+
+  - type: input
+    id: tech_stack
+    attributes:
+      label: Primary Tech Stack
+      description: What technologies does your team primarily use?
+      placeholder: e.g., Python, React, AWS, Kubernetes
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ai_experience
+    attributes:
+      label: Current AI Tool Usage
+      description: How much experience do you have with AI tools like GitHub Copilot, ChatGPT, etc?
+      options:
+        - None - Just getting started
+        - Basic - Used occasionally
+        - Intermediate - Use regularly
+    validations:
+      required: true
+
+  - type: textarea
+    id: learning_goals
+    attributes:
+      label: Learning Goals
+      description: What do you want to achieve through this training?
+      placeholder: |
+        e.g., 
+        - Learn to use AI for code reviews
+        - Build automated workflows
+        - Lead my team in AI adoption
+    validations:
+      required: true
+
+  - type: dropdown
+    id: availability
+    attributes:
+      label: Weekly Time Commitment
+      description: How many hours per week can you dedicate to learning?
+      options:
+        - 1-2 hours per week
+        - 3-5 hours per week
+        - 6-10 hours per week
+        - 10+ hours per week
+    validations:
+      required: true
+
+  - type: dropdown
+    id: learning_style
+    attributes:
+      label: Preferred Learning Style
+      description: How do you learn best?
+      options:
+        - Hands-on - Learning by doing
+        - Reading - Documentation and guides
+        - Mixed - Combination of both
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Ready to Begin
+      description: By checking this box, you commit to actively participating in the training program
+      options:
+        - label: I'm ready to start my AI-First journey! 🚀
+          required: true
