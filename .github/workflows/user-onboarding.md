@@ -10,15 +10,19 @@ permissions:
 safe-outputs:
   create-discussion:
     max: 1
+  create-pull-request:
+    max: 1
+  add-discussion-comment:
+    max: 1
   add-labels:
-    max: 3
+    max: 5
   add-comment:
     max: 2
   close-issue:
     max: 1
 tools:
   github:
-    toolsets: [default]
+    toolsets: [default, discussions]
   repo-memory: {}
 ---
 
@@ -65,7 +69,7 @@ Create a new GitHub Discussion with:
     - **Level 4 (AI Architect):** 3,500-7,000 XP
     - **Level 5 (AI Visionary):** 7,000+ XP
   - Achievement badges they can unlock
-  - Link to their first challenge (you'll mention this will come soon)
+  - **Clear next steps**: "Your first challenge PR will be created in moments! Watch for a notification about your first challenge: 'Write Your First AI Prompt'"
   - Encouragement to ask questions anytime by commenting on this discussion
 
 ## Step 3: Initialize Repo-Memory
@@ -111,15 +115,149 @@ Add these labels to the onboarding issue:
 - `training:active-learner`
 - `user:[github-handle]` (create this label if it doesn't exist)
 
-## Step 5: Welcome Message on Issue
+## Step 5: Create First Challenge PR and Post to Discussion
+
+To ensure the user has immediate access to their first challenge, **create a challenge PR directly and post the challenge content to their discussion**:
+
+### 5a. Create Challenge Pull Request
+
+Create a new PR with:
+- **Branch**: `challenge/[github-handle]/prompt-basics-001`
+- **Title**: `🎯 Challenge: Write Your First AI Prompt - @[github-handle]`
+- **Labels**: 
+  - `training:challenge`
+  - `user:[github-handle]`
+  - `difficulty:1`
+- **Body**:
+  ```markdown
+  # 🎓 Level 1 Challenge: Write Your First AI Prompt
+  
+  **Level:** 1 | **XP Reward:** 100 | **Estimated Time:** 30 minutes
+  
+  ## 🎮 Objective
+  
+  Learn the fundamentals of prompt engineering by writing effective prompts for common software engineering tasks. You'll understand how to structure prompts, provide context, and get better results from AI tools.
+  
+  ## 🧠 Skills Practiced
+  
+  - Basic prompt structure
+  - Context provision
+  - Clear task specification
+  - Output formatting requests
+  
+  ## 📋 Your Task
+  
+  Write 3 effective prompts for the following scenarios. Create a file called `level-1-prompts.md` in this PR.
+  
+  ### Scenario 1: Code Generation
+  Write a prompt to generate a Python function that validates email addresses using regex.
+  
+  ### Scenario 2: Code Explanation
+  Write a prompt to explain a complex piece of code to a junior developer.
+  
+  ### Scenario 3: Bug Detection
+  Write a prompt to help identify potential bugs in a code snippet.
+  
+  ## ✅ Acceptance Criteria
+  
+  Your prompts should:
+  - [ ] Be clear and specific about what you want
+  - [ ] Provide necessary context
+  - [ ] Specify the expected output format
+  - [ ] Be concise but complete
+  - [ ] Follow best practices for prompt engineering
+  
+  ## 💡 Resources
+  
+  - [Prompt Engineering Guide](https://www.promptingguide.ai/)
+  - [OpenAI Best Practices](https://platform.openai.com/docs/guides/prompt-engineering)
+  
+  ## 🎯 How to Complete
+  
+  1. Create a file called `level-1-prompts.md` in this PR
+  2. For each prompt, include:
+     - The scenario title
+     - Your prompt
+     - A brief explanation of why you structured it that way
+  3. Commit your changes to this branch
+  4. When ready, merge this PR - the grader will automatically review your work!
+  
+  ## 🏆 Bonus Points
+  
+  - Write a 4th prompt for code refactoring (+20 XP)
+  - Include example few-shot learning in one of your prompts (+30 XP)
+  - Document common mistakes to avoid in prompt writing (+50 XP)
+  
+  ---
+  
+  Good luck, @[github-handle]! Questions? Comment on this PR or in your [discussion]([discussion-url]).
+  ```
+
+Replace `[discussion-url]` with the actual discussion URL.
+
+### 5b. Post Challenge to User's Discussion
+
+Post a comment to the user's discussion with the challenge details:
+
+```markdown
+## 🎯 Your First Challenge is Ready!
+
+Congratulations! Your first challenge has been created. Let's get started! 🚀
+
+# 🎓 Challenge: Write Your First AI Prompt
+
+**Level:** 1 | **XP Reward:** 100 XP | **Time:** ~30 minutes
+
+## What You'll Learn
+
+Master the fundamentals of prompt engineering by writing effective prompts for common software engineering tasks. You'll learn to structure prompts, provide context, and get better results from AI tools.
+
+## Your Mission
+
+Write 3 effective prompts for these scenarios:
+
+1. **Code Generation** - Write a prompt to generate a Python function that validates email addresses using regex
+2. **Code Explanation** - Write a prompt to explain complex code to a junior developer  
+3. **Bug Detection** - Write a prompt to help identify potential bugs in a code snippet
+
+## How to Complete This Challenge
+
+**Option 1: Use the PR (Recommended)**
+1. 📖 Go to your challenge PR: [pr-url]
+2. 💻 Create a file called `level-1-prompts.md` 
+3. ✍️ Write your 3 prompts with explanations
+4. ✅ Commit and merge the PR when ready
+5. 🎉 The grader will automatically review and award XP!
+
+**Option 2: Submit Here**
+You can also submit your prompts as a comment right here in this discussion! Just post your 3 prompts with explanations, and I'll review them.
+
+## Tips for Success
+
+- Be specific about what you want the AI to do
+- Provide necessary context for each task
+- Specify the format you want for outputs
+- Keep prompts concise but complete
+
+## Resources
+
+- [Prompt Engineering Guide](https://www.promptingguide.ai/)
+- [OpenAI Best Practices](https://platform.openai.com/docs/guides/prompt-engineering)
+
+Ready to start? Let me know if you have any questions! 💪
+```
+
+Replace `[pr-url]` with the actual PR URL created in step 5a.
+
+## Step 6: Welcome Message on Issue
 
 Post a comment on the issue with:
 - Confirmation that onboarding is complete ✅
 - Link to their new Discussion
-- Next steps: "Check your discussion for your first challenge!"
+- **Specific next steps**: "Your first challenge is ready! Check your discussion to get started."
 - Encouragement: "Welcome to the future of AI-first engineering! 🚀"
 
-## Step 6: Close the Issue
+## Step 7: Close the Issue
 
 Close the onboarding issue with a success message.
 
@@ -185,10 +323,26 @@ You start at **Level 1: AI Explorer** with **0 XP**. Complete challenges to earn
 
 ## 🎯 Your First Challenge
 
-Your first challenge will be posted here soon! In the meantime, feel free to:
-- Ask me questions about AI tools
-- Explore the resources in the `/resources` folder
-- Get familiar with GitHub Agentic Workflows
+**Your first challenge is ready right now!** 🚀
+
+The full challenge details will be posted below in this discussion, and you'll also find it in your challenge PR.
+
+The challenge is: **"Write Your First AI Prompt"** - a Level 1 challenge worth 100 XP.
+
+**What to do next:**
+1. ✅ Read the challenge details (posted below in this discussion or check the PR)
+2. 💻 Create your prompts following the instructions
+3. 📝 Submit via PR or post your answers as a comment here
+4. 🎉 Earn your first 100 XP!
+
+**Two ways to complete:**
+- **Option 1 (Recommended):** Use the challenge PR - create the file, commit, and merge
+- **Option 2:** Post your solution as a comment here in this discussion
+
+In the meantime, feel free to:
+- Ask me questions about AI tools by commenting here
+- Check out the [Getting Started Guide](../resources/guides/getting-started.md)
+- Browse the [Reading List](../resources/reading-list.md)
 
 Ready to start? Let's build the future together! 🚀
 
@@ -200,8 +354,10 @@ Ready to start? Let's build the future together! 🚀
 
 - Use `github create-discussion` to create the discussion
 - Use `repo-memory write` to save the user profile
+- Use `github create-pull-request` to create the first challenge PR
+- Use `github add-discussion-comment` to post the challenge to the discussion
 - Use `github add-label` to add labels
-- Use `github create-comment` to post comments
+- Use `github create-comment` to post comments on the issue
 - Use `github close-issue` to close the onboarding issue
 
 Remember: You're not just onboarding a user - you're starting them on a transformative journey! Make it memorable! ✨

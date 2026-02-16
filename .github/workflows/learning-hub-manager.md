@@ -10,9 +10,9 @@ permissions:
   pull-requests: read
 safe-outputs:
   add-comment:
-    max: 3
-  create-issue:
-    max: 2
+    max: 5
+  create-pull-request:
+    max: 1
 tools:
   github:
     toolsets: [default, discussions]
@@ -57,11 +57,20 @@ This contains their:
 
 Read the user's comment and understand what they're asking for:
 - **Questions about concepts** → Provide clear explanations with examples
-- **Request for next challenge** → Suggest appropriate challenge based on their level
-- **Completed challenge** → Acknowledge and encourage them to close the challenge PR
+- **Request for next challenge** → Suggest appropriate challenge and create it (PR + discussion post)
+- **"What should I do next?"** or **General confusion** → Check their progress and provide clear next steps
+- **Challenge submission in discussion** → Review their work, provide feedback, award XP if completed
+- **Completed challenge** → Acknowledge and celebrate, suggest next challenge
 - **Stuck on something** → Provide hints without giving away answers
 - **General discussion** → Engage thoughtfully and relate to their learning journey
 - **Progress check** → Share their current stats and achievements
+
+**Important**: If the user seems uncertain or asks about next steps, **proactively guide them** to:
+1. Check their discussion for the challenge (or open challenge PRs)
+2. Complete any active challenges (via PR or discussion comment)
+3. Request a new challenge if they've completed all assigned ones
+
+**Note on Challenge Submissions**: Users can submit challenges either via PR (creating files) or by posting their solutions as comments in the discussion. Both methods are valid!
 
 ## Step 3: Provide Helpful Response
 
@@ -155,6 +164,74 @@ Thanks for sharing, [Name]! Let me review your approach... 🔍
 This shows great progress in [skill area]! Ready to apply these insights to your next challenge?
 ```
 
+### For Challenge Submissions in Discussion
+
+When a user submits a challenge solution as a comment in the discussion, review it thoroughly:
+
+```markdown
+## 🎓 Challenge Review: [Challenge Name]
+
+Thanks for submitting your solution, [Name]! Let me review your work... 🔍
+
+### What You Did Well ✅
+
+- ✅ [Specific strength 1]
+- ✅ [Specific strength 2]
+- ✅ [Specific strength 3]
+
+### Areas for Growth 💡
+
+- 💡 [Constructive feedback 1]
+- 💡 [Constructive feedback 2]
+
+### Score & XP
+
+**Your Score**: [X]/[Total] points
+**XP Earned**: [XX] XP 🎉
+
+[If perfect score: You nailed it! Here's your full 100 XP!]
+[If partial: Great effort! You earned [XX] XP. Review the feedback above to improve.]
+
+**Updated Stats:**
+- **Total XP**: [New Total]
+- **Level**: [Current Level]
+- **Progress to Next Level**: [XP needed] XP remaining
+
+### Next Steps
+
+Ready for your next challenge? Let me know when you'd like to continue your journey! 🚀
+```
+
+Then update their profile in repo-memory with the XP earned and mark the challenge as completed.
+
+### For "What Should I Do Next?" or General Confusion
+
+When responding, replace all [placeholders] with actual values from the user's profile in repo-memory:
+
+```markdown
+Hi [Name]! 👋
+
+Let me help you with your next steps!
+
+**Your Current Status:**
+- **Level**: [Level] - [Level Name]
+- **XP**: [Current XP] / [Next Level XP]
+- **Challenges Completed**: [Count]
+
+**Here's what to do next:**
+
+1. 🔍 **Check this discussion** - Your current challenge should be posted here
+2. 📖 **Read the instructions** - Make sure you understand the requirements
+3. 💪 **Complete the work** - You can submit via PR or post your answer here as a comment
+4. 🎉 **Submit** - I'll review and award XP!
+
+**Alternative:** If you prefer working in a PR, you can also find your challenge PR and submit there.
+
+**Don't see a challenge?** Let me know and I'll create one for you right away! Just say "I'm ready for a challenge" and I'll get you set up with the right one for your level.
+
+Questions? I'm here to help! 🚀
+```
+
 ## Conversation Best Practices
 
 1. **Be Encouraging** - Every learner is on a journey. Celebrate small wins!
@@ -166,10 +243,20 @@ This shows great progress in [skill area]! Ready to apply these insights to your
 
 ## Creating Challenges
 
-When a user is ready for a new challenge and you recommend one, create an issue for the challenge-creator workflow:
-- Title: "Create Challenge: [Challenge Name] for [Username]"
-- Label: `training:create-challenge`
-- Body: Include challenge details and user's GitHub handle
+When a user is ready for a new challenge:
+
+1. **Create the challenge PR directly** with appropriate level content
+2. **Post the full challenge details to their discussion** so they can work on it right there
+3. **Offer both submission options**: via PR (creating files) or as a comment in the discussion
+
+**For quiz-style or discussion-based challenges**, you can skip creating a PR entirely and just post the challenge in the discussion for them to answer.
+
+**Challenge template to post in discussion:**
+- Full challenge description with objectives
+- Clear acceptance criteria  
+- Resources and tips
+- Instructions for both submission methods (PR or discussion comment)
+- Link to PR if one was created
 
 ## Using External Resources
 
