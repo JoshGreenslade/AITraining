@@ -101,9 +101,8 @@ The repository owner will need to run this command to generate the updated lock 
 
 ### Permissions Changed
 - `user-onboarding.md`: Added `create-pull-request: max: 1`, `add-discussion-comment: max: 1`, `discussions` toolset
-- `user-onboarding.md`: Removed `create-issue` (no longer needed)
-- `learning-hub-manager.md`: Added `create-pull-request: max: 1`
-- `learning-hub-manager.md`: Removed `create-issue` (no longer needed)
+- `user-onboarding.md`: Changed from `create-issue` to `create-pull-request`
+- `learning-hub-manager.md`: Changed from `create-issue: max: 2` to `create-pull-request: max: 1`
 
 ### Safe-Output Limits Adjusted
 - `user-onboarding.md`: `add-labels` increased from 3 to 5

@@ -190,8 +190,10 @@ Create a new PR with:
   
   ---
   
-  Good luck, @[github-handle]! Questions? Comment on this PR or in your [discussion](#discussion-link).
+  Good luck, @[github-handle]! Questions? Comment on this PR or in your [discussion]([discussion-url]).
   ```
+
+Replace `[discussion-url]` with the actual discussion URL.
 
 ### 5b. Post Challenge to User's Discussion
 
@@ -221,7 +223,7 @@ Write 3 effective prompts for these scenarios:
 ## How to Complete This Challenge
 
 **Option 1: Use the PR (Recommended)**
-1. 📖 Go to your challenge PR: [Link to PR]
+1. 📖 Go to your challenge PR: [pr-url]
 2. 💻 Create a file called `level-1-prompts.md` 
 3. ✍️ Write your 3 prompts with explanations
 4. ✅ Commit and merge the PR when ready
@@ -245,7 +247,7 @@ You can also submit your prompts as a comment right here in this discussion! Jus
 Ready to start? Let me know if you have any questions! 💪
 ```
 
-Replace `[Link to PR]` with the actual PR URL and `#discussion-link` in the PR body with the discussion URL.
+Replace `[pr-url]` with the actual PR URL created in step 5a.
 
 ## Step 6: Welcome Message on Issue
 
@@ -323,12 +325,12 @@ You start at **Level 1: AI Explorer** with **0 XP**. Complete challenges to earn
 
 **Your first challenge is ready right now!** 🚀
 
-Scroll down in this discussion to see the full challenge details, or head to the challenge PR: [Link will be posted below]
+The full challenge details will be posted below in this discussion, and you'll also find it in your challenge PR.
 
 The challenge is: **"Write Your First AI Prompt"** - a Level 1 challenge worth 100 XP.
 
 **What to do next:**
-1. ✅ Read the challenge details below (or in the PR)
+1. ✅ Read the challenge details (posted below in this discussion or check the PR)
 2. 💻 Create your prompts following the instructions
 3. 📝 Submit via PR or post your answers as a comment here
 4. 🎉 Earn your first 100 XP!
