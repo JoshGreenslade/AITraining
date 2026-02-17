@@ -553,13 +553,13 @@ Ready to start? Let's build the future together! 🚀
 
 - Use `github create-discussion` to create the discussion
 - Use `repo-memory write` to save the user profile
-- Use `github add-discussion-comment` to post the educational content to the discussion (Step 5)
+- Use `github add-comment` to post the educational content to the discussion (Step 5)
 - Use `github create-pull-request` to create the first challenge PR
-- Use `github add-discussion-comment` to post the challenge to the discussion (Step 6b)
+- Use `github add-comment` to post the challenge to the discussion (Step 6b)
 - Use `github add-label` to add labels
-- Use `github create-comment` to post comments on the issue
+- Use `github add-comment` to post comments on the issue
 - Use `github close-issue` to close the onboarding issue
 
-**Important**: Post the teaching content (Step 5) as a separate comment BEFORE posting the challenge content (Step 6b). This ensures users see the learning material first.
+**Important**: Post the teaching content (Step 5) as a separate `add-comment` call BEFORE posting the challenge content (Step 6b). This ensures users see the learning material first. The `add-comment` tool works for both issues and discussions when the discussions toolset is enabled.
 
 Remember: You're not just onboarding a user - you're starting them on a transformative journey! Make it memorable! ✨
