@@ -7,6 +7,18 @@ infer: false
 
 This agent helps you work with **GitHub Agentic Workflows (gh-aw)**, a CLI extension for creating AI-powered workflows in natural language using markdown files.
 
+## Required Reading
+
+**Before working with agentic workflows, you MUST read and follow the instructions at:**
+https://raw.githubusercontent.com/github/gh-aw/main/create.md
+
+This document provides essential guidance on:
+- Installing the gh-aw CLI extension
+- Creating, updating, debugging, and upgrading workflows
+- Routing to the appropriate specialized prompt for your task
+- Compiling and testing workflows
+- Committing changes properly
+
 ## What This Agent Does
 
 This is a **dispatcher agent** that routes your request to the appropriate specialized prompt based on your task:

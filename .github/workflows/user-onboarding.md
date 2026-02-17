@@ -15,7 +15,7 @@ safe-outputs:
   add-labels:
     max: 5
   add-comment:
-    max: 2
+    max: 4
   close-issue:
     max: 1
 tools:
@@ -39,7 +39,15 @@ When a user creates an issue with the `training:new-user` label, you will:
 1. **Parse their profile information** from the issue body
 2. **Create their personalized Discussion** - their central learning hub
 3. **Initialize their progress tracking** in repo-memory
-4. **Welcome them warmly** and get them excited about their journey!
+4. **Provide educational content** - Post comprehensive learning material about prompt engineering
+5. **Create their first challenge** - After they've had time to learn
+6. **Welcome them warmly** and get them excited about their journey!
+
+## Important: Safe Outputs and Multi-Step Coordination
+
+**Note about safe-outputs**: Nothing will be created until after the agent has finished executing all steps. All `safe-outputs` actions (creating discussions, PRs, adding labels, posting comments) are queued during agent execution and only applied after completion. 
+
+If you need multi-step workflows where users interact between steps, you'll need to coordinate this using separate workflow runs or by checking repo-memory state in subsequent runs. For onboarding, all setup happens in a single run.
 
 ## Step 1: Parse Profile Data
 
@@ -67,7 +75,7 @@ Create a new GitHub Discussion with:
     - **Level 4 (AI Architect):** 3,500-7,000 XP
     - **Level 5 (AI Visionary):** 7,000+ XP
   - Achievement badges they can unlock
-  - **Clear next steps**: "Your first challenge PR will be created in moments! Watch for a notification about your first challenge: 'Write Your First AI Prompt'"
+  - **Note**: Educational content and your first challenge will be posted below
   - Encouragement to ask questions anytime by commenting on this discussion
 
 ## Step 3: Initialize Repo-Memory
@@ -113,11 +121,205 @@ Add these labels to the onboarding issue:
 - `training:active-learner`
 - `user:[github-handle]` (create this label if it doesn't exist)
 
-## Step 5: Create First Challenge PR and Post to Discussion
+## Step 5: Post Educational Content to Discussion
+
+**Before presenting any challenges, provide comprehensive learning material.** Post a comment to the user's discussion with long-form teaching content about prompt engineering:
+
+```markdown
+## 📚 Learning Module: Introduction to Prompt Engineering
+
+Before we jump into challenges, let's learn the fundamentals of prompt engineering! This is your foundation for everything that follows. Take your time to read through this carefully. 🎓
+
+### What is Prompt Engineering?
+
+Prompt engineering is the art and science of crafting effective instructions for AI models. Think of it as communicating with a highly capable but literal assistant - the clearer and more specific your instructions, the better the results.
+
+### The Three Pillars of Effective Prompts
+
+#### 1️⃣ **Clarity and Specificity**
+
+Bad prompt: "Write code for validation"
+Good prompt: "Write a Python function that validates email addresses using regex, returning True for valid emails and False otherwise"
+
+**Why it matters**: AI models work best with clear, specific instructions. Ambiguity leads to unpredictable results.
+
+#### 2️⃣ **Context and Background**
+
+Bad prompt: "Explain this code"
+Good prompt: "Explain this authentication middleware code to a junior developer who is new to Express.js. Focus on security implications and how it integrates with JWT tokens."
+
+**Why it matters**: Context helps the AI understand your perspective, audience, and requirements. It's like giving someone the full picture before asking for help.
+
+#### 3️⃣ **Output Format and Constraints**
+
+Bad prompt: "Help me with documentation"
+Good prompt: "Generate JSDoc comments for this function. Include @param tags for all parameters, @returns for the return value, and @throws for potential exceptions. Use TypeScript types in the documentation."
+
+**Why it matters**: Being explicit about how you want the output formatted saves time and ensures consistency.
+
+### The Anatomy of a Great Prompt
+
+A well-structured prompt typically includes:
+
+1. **Role/Persona** (optional but powerful)
+   - "You are a senior software architect..."
+   - "Act as a security expert reviewing code..."
+
+2. **Task Description**
+   - Clearly state what you want done
+   - Be specific about the scope
+
+3. **Context and Constraints**
+   - Relevant background information
+   - Limitations or requirements
+   - Technologies or standards to follow
+
+4. **Output Format**
+   - How should the response be structured?
+   - What level of detail?
+   - Any specific formatting requirements?
+
+5. **Examples** (when helpful)
+   - Show what good looks like
+   - Provide input/output pairs
+   - Demonstrate the pattern you want
+
+### Common Prompt Engineering Patterns
+
+#### Few-Shot Learning
+Provide examples to guide the model:
+
+```
+Create function names following this pattern:
+
+Input: "get all users" → Output: "getAllUsers"
+Input: "delete user by id" → Output: "deleteUserById"
+Input: "update product price" → Output: ?
+```
+
+#### Chain-of-Thought
+Ask the model to think step-by-step:
+
+```
+Explain your reasoning step-by-step:
+1. What does this code do?
+2. What are potential issues?
+3. How would you refactor it?
+```
+
+#### Role-Based Prompting
+Frame the AI's perspective:
+
+```
+You are a code reviewer focusing on security.
+Review this authentication function and identify any vulnerabilities.
+Consider: SQL injection, XSS, authentication bypass, and timing attacks.
+```
+
+### Real-World Examples
+
+#### Example 1: Code Generation
+```
+Create a TypeScript function that:
+- Accepts an array of user objects (with name, email, age properties)
+- Filters users who are 18 or older
+- Sorts them alphabetically by name
+- Returns a new array without mutating the original
+- Includes proper type definitions
+- Has JSDoc comments
+```
+
+#### Example 2: Code Review
+```
+Review this React component for:
+1. Performance issues (unnecessary re-renders, missing memoization)
+2. Accessibility problems (ARIA labels, keyboard navigation)
+3. Security concerns (XSS vulnerabilities)
+4. Best practices (hooks usage, prop validation)
+
+Provide specific line numbers and actionable fixes for each issue found.
+```
+
+#### Example 3: Debugging
+```
+I'm getting a "Cannot read property 'map' of undefined" error in this React component.
+
+Context:
+- The data comes from a REST API call
+- It works sometimes but fails intermittently
+- The error appears in the render method
+
+[paste code here]
+
+Help me:
+1. Identify the root cause
+2. Explain why it's intermittent
+3. Provide a robust solution that handles edge cases
+```
+
+### Best Practices for Prompt Engineering
+
+✅ **DO:**
+- Be specific and detailed
+- Provide relevant context
+- Specify output format
+- Include examples when helpful
+- Iterate and refine prompts
+- Test with edge cases
+
+❌ **DON'T:**
+- Be vague or ambiguous
+- Assume the AI knows your context
+- Use jargon without explanation
+- Expect perfection on first try
+- Forget to validate AI output
+
+### Common Mistakes to Avoid
+
+1. **Too Vague**: "Make this better" → What aspect? How? What's the goal?
+2. **Missing Context**: "Why doesn't this work?" → Need to see the code and error
+3. **No Constraints**: "Write documentation" → What format? How detailed? For whom?
+4. **Unrealistic Expectations**: AI is a tool, not magic - always review and validate
+
+### Prompt Engineering for Different Tasks
+
+**Code Generation**: Focus on functionality, types, error handling, edge cases
+**Code Review**: Specify what to look for (security, performance, style, etc.)
+**Debugging**: Provide code, error messages, expected vs actual behavior
+**Refactoring**: State goals (readability, performance, maintainability)
+**Documentation**: Specify audience, detail level, format requirements
+**Testing**: Define test types, coverage requirements, edge cases to consider
+
+### Practice Mindset
+
+As you work on challenges, think of prompt engineering as a conversation:
+- Start with a clear request
+- Provide necessary context
+- Be specific about what you want
+- Iterate if needed
+- Always validate the results
+
+### Ready to Practice?
+
+Now that you understand the fundamentals, you're ready for your first challenge! The skills you just learned will be essential for success.
+
+Take a moment to review these concepts, and when you're ready, scroll down to start your first challenge. 🚀
+
+**Questions?** Drop a comment here anytime. I'm here to help!
+
+---
+*💡 Tip: Bookmark this discussion! You'll want to refer back to these principles as you progress through the training.*
+```
+
+This teaching content should be posted as a comment on the discussion **before** posting the challenge.
+
+## Step 6: Create First Challenge PR and Post to Discussion
+
+**After providing the educational content above**, create the challenge to let users apply what they learned.
 
 To ensure the user has immediate access to their first challenge, **create a challenge PR directly and post the challenge content to their discussion**:
 
-### 5a. Create Challenge Pull Request
+### 6a. Create Challenge Pull Request
 
 Create a new PR with:
 - **Branch**: `challenge/[github-handle]/prompt-basics-001`
@@ -193,7 +395,7 @@ Create a new PR with:
 
 Replace `[discussion-url]` with the actual discussion URL.
 
-### 5b. Post Challenge to User's Discussion
+### 6b. Post Challenge to User's Discussion
 
 Post a comment to the user's discussion with the challenge details:
 
@@ -245,17 +447,17 @@ You can also submit your prompts as a comment right here in this discussion! Jus
 Ready to start? Let me know if you have any questions! 💪
 ```
 
-Replace `[pr-url]` with the actual PR URL created in step 5a.
+Replace `[pr-url]` with the actual PR URL created in step 6a.
 
-## Step 6: Welcome Message on Issue
+## Step 7: Welcome Message on Issue
 
 Post a comment on the issue with:
 - Confirmation that onboarding is complete ✅
 - Link to their new Discussion
-- **Specific next steps**: "Your first challenge is ready! Check your discussion to get started."
+- **Specific next steps**: "Your learning materials and first challenge are ready! Check your discussion to get started."
 - Encouragement: "Welcome to the future of AI-first engineering! 🚀"
 
-## Step 7: Close the Issue
+## Step 8: Close the Issue
 
 Close the onboarding issue with a success message.
 
@@ -319,21 +521,20 @@ You start at **Level 1: AI Explorer** with **0 XP**. Complete challenges to earn
 - 🤖 **Workflow Wizard** - Create amazing workflows
 - ...and many more!
 
-## 🎯 Your First Challenge
+## 🎯 What's Next?
 
-**Your first challenge is ready right now!** 🚀
+**Your learning journey starts now!** 🚀
 
-The full challenge details will be posted below in this discussion, and you'll also find it in your challenge PR.
+I've prepared comprehensive educational content and your first challenge. Both will be posted below in this discussion.
 
-The challenge is: **"Write Your First AI Prompt"** - a Level 1 challenge worth 100 XP.
+**Here's what to do:**
+1. 📚 **First**: Read the "Introduction to Prompt Engineering" learning module (posted below)
+2. 🎯 **Then**: Complete your first challenge: "Write Your First AI Prompt" (also posted below)
+3. 💻 Create your prompts following the instructions
+4. 📝 Submit via the challenge PR or post your answers as a comment here
+5. 🎉 Earn your first 100 XP!
 
-**What to do next:**
-1. ✅ Read the challenge details (posted below in this discussion or check the PR)
-2. 💻 Create your prompts following the instructions
-3. 📝 Submit via PR or post your answers as a comment here
-4. 🎉 Earn your first 100 XP!
-
-**Two ways to complete:**
+**Two ways to complete challenges:**
 - **Option 1 (Recommended):** Use the challenge PR - create the file, commit, and merge
 - **Option 2:** Post your solution as a comment here in this discussion
 
@@ -352,10 +553,13 @@ Ready to start? Let's build the future together! 🚀
 
 - Use `github create-discussion` to create the discussion
 - Use `repo-memory write` to save the user profile
+- Use `github add-discussion-comment` to post the educational content to the discussion (Step 5)
 - Use `github create-pull-request` to create the first challenge PR
-- Use `github add-discussion-comment` to post the challenge to the discussion
+- Use `github add-discussion-comment` to post the challenge to the discussion (Step 6b)
 - Use `github add-label` to add labels
 - Use `github create-comment` to post comments on the issue
 - Use `github close-issue` to close the onboarding issue
+
+**Important**: Post the teaching content (Step 5) as a separate comment BEFORE posting the challenge content (Step 6b). This ensures users see the learning material first.
 
 Remember: You're not just onboarding a user - you're starting them on a transformative journey! Make it memorable! ✨
