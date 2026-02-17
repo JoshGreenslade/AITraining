@@ -1,6 +1,6 @@
 {
   "user_id": "JoshGreenslade",
-  "name": "Josh4",
+  "name": "Josh",
   "level": 1,
   "xp": 0,
   "badges": [],
@@ -15,14 +15,14 @@
   },
   "profile": {
     "team_size": "3",
-    "tech_stack": "dotnet",
-    "ai_experience": "intermediate",
-    "learning_goals": "Improve all ai skills",
-    "availability_hours_per_week": "6-10 hours per week",
-    "learning_style": "mixed"
+    "tech_stack": "Dotnet",
+    "ai_experience": "Intermediate - Use regularly",
+    "learning_goals": "Improve",
+    "availability_hours_per_week": "3-5 hours per week",
+    "learning_style": "Mixed - Combination of both"
   },
   "learning_style_effectiveness": {},
-  "last_active": "2026-02-16",
+  "last_active": "2026-02-17",
   "completion_rate": 0.0,
-  "onboarded_date": "2026-02-16"
+  "onboarded_date": "2026-02-17"
 }
