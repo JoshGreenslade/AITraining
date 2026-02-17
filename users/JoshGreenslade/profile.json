@@ -5,7 +5,15 @@
   "xp": 0,
   "badges": [],
   "challenges_completed": [],
-  "challenges_in_progress": [],
+  "challenges_in_progress": [
+    {
+      "challenge_id": "prompt-basics-001",
+      "pr_number": 19,
+      "started_at": "2026-02-17",
+      "status": "incomplete_submission",
+      "attempts": 1
+    }
+  ],
   "skills": {
     "prompt_engineering": 0,
     "agentic_workflows": 0,
