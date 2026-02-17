@@ -5,7 +5,17 @@
   "xp": 0,
   "badges": [],
   "challenges_completed": [],
-  "challenges_in_progress": [],
+  "challenges_in_progress": [
+    {
+      "challenge_id": "level-1-prompt-basics",
+      "challenge_name": "Write Your First AI Prompt",
+      "level": 1,
+      "xp_reward": 100,
+      "started_date": "2026-02-17",
+      "pr_url": "challenge/JoshGreenslade/level-1-prompts",
+      "discussion_comment": true
+    }
+  ],
   "skills": {
     "prompt_engineering": 0,
     "agentic_workflows": 0,
@@ -22,7 +32,7 @@
     "learning_style": "mixed"
   },
   "learning_style_effectiveness": {},
-  "last_active": "2026-02-17",
+  "last_active": "2026-02-17T20:48:00Z",
   "completion_rate": 0.0,
   "onboarded_date": "2026-02-17"
 }
