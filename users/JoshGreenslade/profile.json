@@ -5,15 +5,7 @@
   "xp": 0,
   "badges": [],
   "challenges_completed": [],
-  "challenges_in_progress": [
-    {
-      "challenge_id": "prompt-basics-001",
-      "pr_number": 19,
-      "started_at": "2026-02-17",
-      "status": "incomplete_submission",
-      "attempts": 1
-    }
-  ],
+  "challenges_in_progress": [],
   "skills": {
     "prompt_engineering": 0,
     "agentic_workflows": 0,
@@ -24,10 +16,10 @@
   "profile": {
     "team_size": "3",
     "tech_stack": "Dotnet",
-    "ai_experience": "Intermediate - Use regularly",
+    "ai_experience": "intermediate",
     "learning_goals": "Improve",
     "availability_hours_per_week": "3-5 hours per week",
-    "learning_style": "Mixed - Combination of both"
+    "learning_style": "mixed"
   },
   "learning_style_effectiveness": {},
   "last_active": "2026-02-17",
