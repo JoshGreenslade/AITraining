@@ -1,0 +1,29 @@
+{
+  "topic": "prompt_engineering_fundamentals",
+  "started": "2026-02-17",
+  "modules_completed": [],
+  "current_module": "fundamentals",
+  "topics_covered": [
+    "clarity_and_specificity",
+    "context_provision",
+    "prompt_structure",
+    "few_shot_learning",
+    "iteration_and_refinement",
+    "chain_of_thought_preview"
+  ],
+  "exercises_assigned": [
+    {
+      "name": "optimize_user_class_prompt",
+      "assigned_date": "2026-02-17",
+      "status": "pending",
+      "description": "Rewrite a vague prompt using 5 core principles"
+    }
+  ],
+  "next_topics": [
+    "zero_shot_vs_few_shot",
+    "chain_of_thought_reasoning",
+    "prompt_templates",
+    "token_optimization",
+    "advanced_techniques"
+  ]
+}
