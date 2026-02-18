@@ -23,7 +23,7 @@
 #
 # Posts a well done message when a PR is approved
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"f1114c2813e9e9ece341c328c4a523cd0270a3d5ce2e7e298ae205abbc1b8a98"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"ab2186b980bb3fa828faee5f0351ea126978fee72713dd11387463dc7557d262"}
 
 name: "PR Approval Congratulations Workflow"
 "on":
@@ -246,7 +246,10 @@ jobs:
           retention-days: 1
 
   agent:
-    needs: activation
+    needs:
+      - activation
+      - check_approval
+    if: needs.check_approval.outputs.approved == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -786,6 +789,31 @@ jobs:
             /tmp/gh-aw/agent-stdio.log
             /tmp/gh-aw/agent/
           if-no-files-found: ignore
+
+  check_approval:
+    needs: activation
+    runs-on: ubuntu-latest
+    outputs:
+      approved: ${{ steps.check.outputs.result }}
+    steps:
+      - name: Check if review is approved
+        id: check
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          result-encoding: string
+          script: |
+            const review = context.payload.review;
+            const isApproved = review && review.state === 'approved';
+            console.log(`Review state: ${review?.state}`);
+            console.log(`Is approved: ${isApproved}`);
+
+            if (!isApproved) {
+              console.log('Review is not approved. The copilot/agent step will be skipped.');
+            } else {
+              console.log('Review is approved! Proceeding with congratulations message.');
+            }
+
+            return isApproved ? 'true' : 'false';
 
   conclusion:
     needs:

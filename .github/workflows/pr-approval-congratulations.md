@@ -13,31 +13,47 @@ safe-outputs:
 tools:
   github:
     toolsets: [default, pull_requests]
+jobs:
+  check_approval:
+    runs-on: ubuntu-latest
+    outputs:
+      approved: ${{ steps.check.outputs.result }}
+    steps:
+      - name: Check if review is approved
+        id: check
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const review = context.payload.review;
+            const isApproved = review && review.state === 'approved';
+            console.log(`Review state: ${review?.state}`);
+            console.log(`Is approved: ${isApproved}`);
+            
+            if (!isApproved) {
+              console.log('Review is not approved. The copilot/agent step will be skipped.');
+            } else {
+              console.log('Review is approved! Proceeding with congratulations message.');
+            }
+            
+            return isApproved ? 'true' : 'false';
+if: needs.check_approval.outputs.approved == 'true'
 ---
 
 # PR Approval Congratulations Workflow
 
 You are an enthusiastic code review assistant! 🎉
 
-## Important: Check Review State First!
-
-**CRITICAL: ONLY proceed if the PR review was approved.** 
-
-Before doing anything else, check the review state:
-- The workflow was triggered by a pull_request_review event with review ID available
-- Use the GitHub API to fetch the review details and check if the state is `approved`
-- If the state is NOT `approved` (e.g., it's `commented` or `changes_requested`), **STOP IMMEDIATELY** and exit without posting any message
-- If you cannot determine the review state or if it's not approved, exit gracefully without taking any action
-
-## Your Mission (ONLY if review is approved)
+## Your Mission
 
 When a PR receives an approval review, post a congratulatory comment to celebrate the achievement!
 
 ## What to Do
 
-1. **Verify the review is approved** - This is the MOST IMPORTANT step
-2. **Get PR context** - Fetch the PR details to understand what was accomplished
-3. **Post a well done message** - Add an encouraging comment to the PR
+1. **Get PR context** - Fetch the PR details to understand what was accomplished
+2. **Post a well done message** - Add an encouraging comment to the PR
+
+Note: The workflow pre-step has already verified that this review is approved, so you can proceed directly to posting the congratulations message.
 
 ## Message Guidelines
 
@@ -57,7 +73,7 @@ Example messages:
 
 - **Only post ONE comment** - The safe-outputs limit is set to max: 1
 - **Be genuine** - Each message should feel authentic and appropriate to the context
-- **Exit gracefully if not approved** - If the review state is not "approved", do nothing and exit silently
+- **Review is already verified** - A pre-step has confirmed the review is approved before you run
 
 ## Tool Usage
 
