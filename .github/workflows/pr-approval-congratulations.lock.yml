@@ -23,7 +23,7 @@
 #
 # Posts a well done message when a PR is approved
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"ab2186b980bb3fa828faee5f0351ea126978fee72713dd11387463dc7557d262"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"a775d2f10b053ab589ddbded6b9eb504e3ee18ffd49191c28d2f8e4a6b65d621"}
 
 name: "PR Approval Congratulations Workflow"
 "on":
@@ -798,7 +798,7 @@ jobs:
     steps:
       - name: Check if review is approved
         id: check
-        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         with:
           result-encoding: string
           script: |
